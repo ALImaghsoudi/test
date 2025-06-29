@@ -1,24 +1,27 @@
+
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { WagmiConfig, createClient, configureChains } from 'wagmi';
+
+import { WagmiConfig, createConfig, configureChains } from 'wagmi';
 import { publicProvider } from 'wagmi/providers/public';
 import { polygonMumbai } from 'wagmi/chains';
+import { createPublicClient, http } from 'viem';
 
-const { provider, webSocketProvider } = configureChains(
+const { chains, publicClient } = configureChains(
   [polygonMumbai],
   [publicProvider()]
 );
 
-const client = createClient({
+const config = createConfig({
   autoConnect: true,
-  provider,
-  webSocketProvider,
+  publicClient,
 });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <WagmiConfig client={client}>
+    <WagmiConfig config={config}>
       <App />
     </WagmiConfig>
   </React.StrictMode>
