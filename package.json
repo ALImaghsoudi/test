@@ -9,8 +9,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "viem": "^2.31.4",
-    "wagmi": "^2.15.6"
+    "wagmi": "^0.12.10"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
